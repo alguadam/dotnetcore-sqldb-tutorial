@@ -37,7 +37,7 @@ namespace DotNetCoreSqlDb
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Use SQL Database if in Azure, otherwise, use SQLite
-            if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+            if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Azure")
                 services.AddDbContext<MyDatabaseContext>(options =>
                         options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
             else
